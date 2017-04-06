@@ -1,7 +1,7 @@
 'use strict';
 angular.module('todoApp', [])
-.controller('todoController', ["$scope", function($scope){
-   
+.controller('todoController', ["$scope", "$filter", function($scope, $filter){
+    $scope.pendingCount = 3;   
 	$scope.setDate= new Date ();
 	$scope.taskList = [];
         if (localStorage.object){
@@ -25,22 +25,32 @@ angular.module('todoApp', [])
         return $scope.newTask ="", $scope.setDate = new Date ();
     }
 	$scope.deleteTask = function(index){
+        console.log(this.$index);
 		$scope.taskList.splice(this.$index, 1);   
 	};
 	$scope.editTask = function(task) {
 		$scope.activeTask = task;
-        console.log($scope.activeTask);
+        // console.log($scope.activeTask);
         console.log(task);
 	}; 
 	$scope.updateTask = function(task) { 
+        console.log(task);
         $scope.activeTask = task.description; 
 	};
-    $scope.modelvalue = false;
-    $scope.changeModelValue = function() {
-        $scope.modelvalue = !$scope.modelvalue;
-    }
+    
     $scope.importantlvalue = false;
-    $scope.changeImportantValue = function() {
+
+    $scope.setDone = function(){
         $scope.importantlvalue = !$scope.importantlvalue;
-    }
+    };
+    $scope.clearCompleted = function(){
+        console.log($scope.taskList);
+        $scope.taskList = $filter('filter')($scope.taskList, {done: false});
+        return $scope.importantlvalue = !$scope.importantlvalue;
+    };
+    $scope.dayvalue = false;
+    $scope.setDay = function(){
+        $scope.dayvalue = !$scope.dayvalue;
+        console.log(dayvalue);
+    };
 }]);

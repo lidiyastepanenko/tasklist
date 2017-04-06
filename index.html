@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Список задач</title>	
+	<meta charset="utf-8">
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="js/angular.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="controller.js"></script>
-<!-- 	<script type="text/javascript" src="js/moment-with-locales.min.js"></script -->>
+<!-- 	<script type="text/javascript" src="js/moment-with-locales.min.js"></script> -->
 <!-- 	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script> -->
 	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
 	<link rel="stylesheet" type="text/css" href="main.css">
@@ -28,7 +29,6 @@
 				<div class="input-group input-group-lg" >
 					<input type="text" style="width: 520px" class="form-control input-sm" ng-model="newTask" placeholder="Например: встреча с..." autofocus required />
 					<input type="date" style="width: 200px" ng-model="setDate"  class="form-control input-sm" >
-					<input type="checkbox" ng-model="importan.done">
 				</div>
 			</form>
 			<div style="margin-top: 10px;">
@@ -39,24 +39,25 @@
 		<div id="left-menu" class="left-menu">
 			<div id="top-section">
 				<p>
-					<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" style="margin-top: : 4px;" class="btn-link" 
+					<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
 					ng-click="changeImportanValue()" >Важное</button>
 				</p>
 				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" style="margin-top: 4px;" class="btn-link" ng-click="changeModelValue()" >Сегодня</button>
+					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" >Сегодня</button>
 				</p>
 				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" style="margin-top: 4px;" class="btn-link">Текущая неделя</button>
+					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link">Текущая неделя</button>
 				</p>
 				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" style="margin-top: 4px;" class="btn-link" >Выполненные</button>
+					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
 				</p>
 			</div>
 		</div>
 		<div class="task-list">
-			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" >
-				<tbody ng-repeat="task in taskList | sortDate:modelvalue | showImportant: importantlvalue">				
-					<tr ng-if="task != activeTask  && !task.done">
+		<!-- <span class="h4">Осталось {{remain()}}</span> -->
+			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="!importantlvalue" >
+				<tbody ng-repeat="task in taskList track by $index ">				
+					<tr ng-if="task != activeTask && !task.done">
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
@@ -79,16 +80,16 @@
 						<td>
 							<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
 						</td>
-						<td>
+						<td colspan="2">
 							<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
 						</td>
 					</tr>	
 				</tbody>
 			</table>
-			<span class="h4">Осталось {{remain()}}</span>
-			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" >
-                <tbody  ng-repeat="task in taskList track by $index">
-                    <tr  ng-show="task.done">
+			<!-- <span class="h4">Осталось {{remain()}}</span> -->
+			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="importantlvalue">
+                <tbody  ng-repeat="task in taskList | showDone: importantlvalue">
+                    <tr>
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
@@ -98,13 +99,20 @@
 						<td><label class="date" >
 							{{task.date | date: "dd-MM-yyyy"}}</label>
 						</td>
-						<td>
-							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
-							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
+						<!-- <td>
 							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
-						</td>
+						</td> -->
 					</tr>
+					<tbody>
+						<tr>
+							<td colspan="4" style="background-color: #FFFFFF;" >
+								<button style="float: right; font-size: 14px;" class="btn btn-danger" ng-click="clearCompleted()" >Очистить выполненные</button>
+							</td>	
+						</tr>
+						
+					</tbody>		
                 </tbody>
+          
             </table>
 		</div>
 	</div>

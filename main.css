@@ -4,6 +4,7 @@
 	text-decoration: line-through;
 }
 .head{
+	width: 100%;
 	padding: 20px;
 	position: relative;
 	margin-left: 0px;
@@ -23,6 +24,14 @@
 	width: 220px;
 	height: 350px;
 	padding-top: 10px;	
+}
+.btn-link{
+	margin-top: 4px;
+	font-size: 16px;
+}
+.over {
+	font-size: 14px;
+	color: #CCCCCC;
 }
 .add-task {
 	position: absolute;
@@ -54,12 +63,14 @@
 	float: right;
 	color: #0066FF;
 	margin:5px;
+	visibility: hidden;
 }
 .glyphicon-trash{
 	font-size: 18px;
 	float: right;
 	color: red;
 	margin:5px;
+	visibility: hidden;
 }
 .glyphicon-ok{
 	font-size: 18px;
@@ -67,15 +78,10 @@
 	color: #009900;
 	margin:5px;
 }
-.glyphicon-thumbs-up{
-	float: right;
-	color: #006600;
-	margin:5px;
-}
 #taskList .description {
 	width: 350px;
 	font-family: "Lobster", cursive;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 16px;
 	margin-bottom: 0px;
 	cursor: pointer;
@@ -83,6 +89,16 @@
 #taskList input {
 	float: left;
 	margin-right: 0px;
+}
+#taskList :hover tr {
+	cursor: pointer;
+	background-color: #CCCCFF;
+}
+#taskList :hover tr .glyphicon-trash{
+	visibility: visible;
+}
+#taskList :hover tr .glyphicon-pencil{
+	visibility: visible;
 }
 #taskList button {
 	float: right;
@@ -102,3 +118,6 @@
 	margin-bottom: 0px;
 	cursor: pointer;
 }
+
+
+
