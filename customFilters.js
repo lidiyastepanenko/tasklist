@@ -1,55 +1,50 @@
 angular.module("todoApp")
-// .filter("sortDate", function () {
-//             return function (task, boolian) {
-//                 console.log(task);
-//                 var now = new Date();
-//                 var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-//                 var tomorrow = new Date(today.valueOf() + 86400000);
-//                 var result = [];
-//                 if(boolian == false) return false;
-//                 task.map(function(item) {
-//                     var result = [];
-//                     if(item.date == new Date()) result.push(task);
-//                     // console.log(task);
-//                     // console.log(task.date);
-//                     // console.log(tomorrow);
-//                     // console.log(result);
-//                 })
-//                 return result;
-                
-//         };
-// })
-// .filter("showDone", function () {
-//     return function (value, boolian) {
-//         console.log(value);
+.filter("showToday", function () {
+    return function (value, boolian) {
+        // console.log(value);
+        var result = [];
+        if(boolian == false) return false;
+        value.map(function(task) { 
+            var now = new Date();
+            console.log(now);
+            today = now.getDate();
+            console.log(today);
+            taskDate = new Date(task.date);
+            console.log(taskDate);
+            taskDay = taskDate.getDate();
+            console.log(taskDay);
+            if(taskDay == today) result.push(task);
+        })
+        console.log(result);
+        return result; 
+    };
+    })
 
-//         var result = [];
-//         if(boolian == false) return false;
-//         value.map(function(task) {
-//             now = new Date;
-//             day = now.valueOf();
-//             console.log(now);
-//             console.log(day);
-//             // console.log(task.date);
-//             tdate = task.date;
-//             console.log(tdate);
-//             tDate = tdate.valueOf();
-//             console.log(tDate);
-//             prev = ( day + (86400000 - 1) );
-//             console.log(prev);
-//             // console.log(task.date);
-//             // var day = task.date;
-//             // var tomorrow = day.valueOf() -1;
+.filter("showWeek", function () {
+    return function (value, boolian) {
+        // console.log(value);
+        var result = [];
+        if(boolian == false) return false;
+        value.map(function(task) { 
+            var now = new Date();
+            console.log(now);
+            today = now.getDate();
+            console.log(today);
+            taskDate = task.date;
+            taskDay = new Date(taskDate);
+            console.log(taskDay);
+            ddd = taskDay.setDate(taskDay.getDate());
+            console.log(ddd);
+            week = now.setDate(now.getDate() + 7)
+            console.log(week);
+            if(ddd <= week) result.push(task);
+        })
+        console.log(result);
+        return result; 
+    };
+    })
 
-//             // console.log(day);
-//             // console.log(tomorrow);
-//             if(day -= prev) result.push(task);
-//             console.log(task);
-//         })
-//         console.log(result);
-//         return result; 
-//     };
-//     })
+
 .filter("showDone", function () {
     return function (value, boolian) {
         // console.log(value);
@@ -58,8 +53,8 @@ angular.module("todoApp")
         value.map(function(task) {            
             if(task.done === true) result.push(task);
             console.log(task);
-            console.log(task.date);
-            console.log(task.description);
+            // console.log(task.date);
+            // console.log(task.description);
         })
         console.log(result);
         return result; 

@@ -48,9 +48,24 @@ angular.module('todoApp', [])
         $scope.taskList = $filter('filter')($scope.taskList, {done: false});
         return $scope.importantlvalue = !$scope.importantlvalue;
     };
+
     $scope.dayvalue = false;
     $scope.setDay = function(){
+        $scope.importantlvalue = false;
+        $scope.weekvalue = false;
         $scope.dayvalue = !$scope.dayvalue;
-        console.log(dayvalue);
+        // console.log(dayvalue);
     };
+
+    $scope.weekvalue = false;
+    $scope.setWeek = function(){
+        $scope.importantlvalue = false;
+        $scope.dayvalue = false;
+        $scope.weekvalue = !$scope.weekvalue;
+    }
+    $scope.showAll = function(){
+        $scope.importantlvalue = false;
+        $scope.dayvalue = false;
+        $scope.weekvalue = false;
+    }
 }]);

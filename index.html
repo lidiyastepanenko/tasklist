@@ -40,13 +40,13 @@
 			<div id="top-section">
 				<p>
 					<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
-					ng-click="changeImportanValue()" >Важное</button>
+					ng-click="showAll()" >Входящие</button>
 				</p>
 				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" >Сегодня</button>
+					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDay()'>Сегодня</button>
 				</p>
 				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link">Текущая неделя</button>
+					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link" ng-click='setWeek()'>Текущая неделя</button>
 				</p>
 				<p>
 					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
@@ -55,7 +55,7 @@
 		</div>
 		<div class="task-list">
 		<!-- <span class="h4">Осталось {{remain()}}</span> -->
-			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="!importantlvalue" >
+			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="!importantlvalue && !dayvalue && !weekvalue" >
 				<tbody ng-repeat="task in taskList track by $index ">				
 					<tr ng-if="task != activeTask && !task.done">
 						<td>
@@ -113,6 +113,69 @@
 					</tbody>		
                 </tbody>
           
+            </table>
+            <table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="dayvalue && !importantlvalue">
+                <tbody  ng-repeat="task in taskList | showToday: dayvalue">
+                    <tr ng-if="task != activeTask && !task.done">
+						<td>
+							<input type="checkbox" ng-model="task.done" title="Выполнено">
+						</td>
+						<td><label class="description" ng-class="{strike: task.done}">
+							{{task.description}}</label>
+						</td>
+						<td><label class="date" >
+							{{task.date | date: "dd-MM-yyyy"}}</label>
+						</td>
+						<td>
+							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
+							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
+							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
+						</td>
+					</tr>
+					<tr ng-if="task == activeTask" >
+						<td>
+							<input type="checkbox" ng-model="task.done" disabled>	
+						</td>
+						<td>
+							<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
+						</td>
+						<td colspan="2">
+							<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
+						</td>
+					</tr>	
+                </tbody>
+            </table>
+
+            <table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="weekvalue && !importantlvalue">
+                <tbody  ng-repeat="task in taskList | showWeek: weekvalue">
+                    <tr ng-if="task != activeTask && !task.done">
+						<td>
+							<input type="checkbox" ng-model="task.done" title="Выполнено">
+						</td>
+						<td><label class="description" ng-class="{strike: task.done}">
+							{{task.description}}</label>
+						</td>
+						<td><label class="date" >
+							{{task.date | date: "dd-MM-yyyy"}}</label>
+						</td>
+						<td>
+							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
+							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
+							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
+						</td>
+					</tr>
+					<tr ng-if="task == activeTask" >
+						<td>
+							<input type="checkbox" ng-model="task.done" disabled>	
+						</td>
+						<td>
+							<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
+						</td>
+						<td colspan="2">
+							<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
+						</td>
+					</tr>	
+                </tbody>
             </table>
 		</div>
 	</div>
