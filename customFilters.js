@@ -30,14 +30,15 @@ angular.module("todoApp")
             console.log(now);
             today = now.getDate();
             console.log(today);
-            taskDate = task.date;
-            taskDay = new Date(taskDate);
+            taskDate = new Date(task.date);
+            console.log(taskDate);
+            taskDay = taskDate.getDate();
             console.log(taskDay);
-            ddd = taskDay.setDate(taskDay.getDate());
+            ddd = taskDate.setDate(taskDate.getDate());
             console.log(ddd);
             week = now.setDate(now.getDate() + 7)
             console.log(week);
-            if(ddd <= week) result.push(task);
+            if(today <= taskDay && ddd <= week) result.push(task);
         })
         console.log(result);
         return result; 

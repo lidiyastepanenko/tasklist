@@ -4,13 +4,27 @@
 	text-decoration: line-through;
 }
 .head{
+	display: inline-block;
 	width: 100%;
-	padding: 20px;
+	padding: 10px;
 	position: relative;
 	margin-left: 0px;
 	height: 60px;
 	width: 100%;
 	background-color: #FF6633;
+}
+.logo {
+	position: relative;
+	display: block;
+	height: 40px;
+	padding: 0 10px 0 10px;
+	font-family: "Lobster", cursive;
+	font-size: 26px;
+	font-weight:500;
+	color: white;
+	// background-color: white;
+	border-radius: 5px;
+	
 }
 .all-holder{
 	position: relative;

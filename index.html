@@ -19,7 +19,7 @@
 <script src="customFilters.js"></script>
 <header class="head">
 <div class="btn-group">
-	<div class="logo"><span class="glyphicon glyphicon-align-justify"></span>
+	<div class="logo"><span class="todo">todo</span>
 	</div>
 </div>
 </header>
@@ -37,21 +37,21 @@
 			</div>
 		</div>	
 		<div id="left-menu" class="left-menu">
-			<div id="top-section">
-				<p>
-					<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
-					ng-click="showAll()" >Входящие</button>
-				</p>
-				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDay()'>Сегодня</button>
-				</p>
-				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link" ng-click='setWeek()'>Текущая неделя</button>
-				</p>
-				<p>
-					<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
-				</p>
-			</div>
+				<ul  class="nav clearfix">
+					<li>
+						<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
+						ng-click="showAll()" >Входящие</button>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDay()'>Сегодня</button>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link" ng-click='setWeek()'>Текущая неделя</button>
+					</li>
+					<li>
+						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
+					</li>
+				</ul>
 		</div>
 		<div class="task-list">
 		<!-- <span class="h4">Осталось {{remain()}}</span> -->
