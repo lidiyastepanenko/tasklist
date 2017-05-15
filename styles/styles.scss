@@ -1,0 +1,245 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+.container{
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	background-color: #FAF0E6;
+	// --------header--------
+}
+
+.header{
+	position: relative;
+	width: 100%;
+	max-width: 960px;
+	padding: 10px;
+	margin: auto;
+	height: 60px;
+	background-color: #FF6633;
+}
+.logo {
+	float: left;
+	height: 40px;
+	padding: 0 10px 0 10px;
+	font-family: cursive;
+	font-size: 26px;
+	font-weight:500;
+	color: white;
+	// background-color: white;
+	border-radius: 5px;	
+}
+
+
+	// -------content------
+.content{
+	position: relative;
+	width: 100%;
+	max-width: 960px;
+	height: 100vh;
+	// top: 35px;
+	margin: auto;
+	
+}
+#touch-menu {
+	display: none;
+	padding: 8px 0px;
+	// text-decoration:none;
+    font-size: 16px;
+    font-weight:500;
+	color:#333;
+}
+
+.divide {
+	display: block;
+	height: 3px;
+	margin: 4px 0;
+	background: #FFFFFF;
+}
+	// ------left-menu-------
+.left-menu{
+	position: relative;
+	width: 25%;
+	height: 100vh;
+	top: 60px;
+	display: inline-block;
+}
+.nav li .btn-link{
+	margin-top: 4px;
+	font-size: 16px;
+	color: #000000;
+}
+.nav li .btn-link:hover{
+	margin-top: 4px;
+	font-size: 16px;
+	color: #FF6633;
+	text-decoration: none;
+}
+.glyphicon-list-alt, .glyphicon-calendar,
+.glyphicon-check{
+	font-size: 18px;
+	color: #FF6633;	
+	height: 40px;
+}
+
+	// -------@media touch-menu--------
+
+@media (max-width: 768px){
+	.container{
+		width: 100%;
+		padding: 0px;
+		margin: 0px;
+		height: 100%;
+		background-color: #FAF0E6;
+	}
+	.header{
+		position: fixed;
+		height: 60px;
+		background-color: #FF6633;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.content{
+		position: static;
+		width:100%;
+		margin: auto;
+		top: 60px;
+		left: 0px;
+		padding:0px;
+	}
+	.left-menu{
+		display: none;
+	}
+	#touch-menu{
+		display: block;
+		float: left;
+		width: 40px;
+		height: 40px;
+		// margin: 0px 10px;
+		padding: 8px 8px;
+		border-radius: 4px;
+	}
+	#touch-menu:hover {
+		background-color: #D66038;
+	}
+}
+	
+
+	// ------task-page-------
+.task-page{
+	position: absolute;
+	// top: 30px;
+	width: 75%;
+	height: 100vh;
+	padding: 10px;
+	display: inline-block;
+	
+	background-color: #FFFFFF;
+}
+.add-task{
+	position: relative;
+	top: 50px;
+}
+.button-add{
+	position: relative;
+	// left: 15px;
+}
+.list{
+	position: relative;
+	width: 100%;
+	top: 150px;
+}
+
+// -------@media touch-menu--------
+
+@media (max-width: 768px){
+
+	.task-page{
+		// position: static;
+		// display: block;
+		width: 100%;
+		margin: 0px;
+		top:60px;
+	}
+	.add-task{
+		position: static;
+		top: 150px;
+	}
+}
+
+
+
+#taskList .description {
+	font-family: cursive;
+	font-weight: 400;
+	font-size: 16px;
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+#taskList :hover .description{
+	font-size: 18px;
+}
+#taskList input {
+	float: left;
+	margin-right: 0px;
+}
+#taskList tr {
+	background-color: #FFFFFF;
+}
+// #taskList :hover tr {
+// 	background-color: #DCDCDC;
+// }
+#taskList :hover tr .glyphicon-trash{
+	visibility: visible;
+}
+#taskList :hover tr .glyphicon-pencil{
+	visibility: visible;
+}
+#taskList button {
+	float: right;
+	font-size: 10px;
+	visibility:visible;
+}
+.glyphicon-pencil{
+	font-size: 18px;
+	float: right;
+	color: #0066FF;
+	margin:5px;
+	visibility: hidden;
+}
+.glyphicon-trash{
+	font-size: 18px;
+	float: right;
+	color: red;
+	margin:5px;
+	visibility: hidden;
+}
+.glyphicon-ok{
+	font-size: 18px;
+	float: right;
+	color: #009900;
+	margin:5px;
+}
+.down {
+	font-size: 16px;
+	color: green;
+	font-style: italic;
+}
+.date{
+	font-family:  cursive;
+	float: right;
+	font-weight: 300;
+	font-size: 14px;
+	margin-bottom: 0px;
+	cursor: pointer;
+}
+.add{
+	width: 100%;
+	max-width: 960px;
+}

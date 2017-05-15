@@ -3,65 +3,82 @@
 <head>
 	<title>Список задач</title>	
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/angular.js"></script>
-	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="./lib/angular.js"></script>
+	<script type="text/javascript" src="./lib/angular.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 	<script type="text/javascript" src="controller.js"></script>
 <!-- 	<script type="text/javascript" src="js/moment-with-locales.min.js"></script> -->
 <!-- 	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script> -->
-	<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" />
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" href="./lib/bootstrap-datetimepicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+	<link rel="stylesheet" type="text/css" href="./lib/bootstrap.css">
 	<script src="customFilters.js"></script>
 </head>
 <body ng-app="todoApp" class="container">
-<script src="customFilters.js"></script>
-<header class="head">
-<div class="btn-group">
-	<div class="logo"><span class="todo" ng-click="showAll()">todo</span>
+
+<header class="header">
+	<div class="logo">
+		<span class="todo" ng-click="showAll()">todo</span>
 	</div>
-</div>
+	<a href="#" id="touch-menu" ng-click="openMenu()">
+		<span class="divide"></span>
+		<span class="divide"></span>
+		<span class="divide"></span>
+	</a>
 </header>
-	<div class="all-holder" id="allHolder" ng-controller="todoController">
+<div class="content" ng-controller="todoController">
+	<div class="left-menu">
+		<nav  class="nav clearfix" tabindex='1'>
+			<ul>
+			<li>
+				<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
+				ng-click="showAll()" >Входящие</button>
+			</li>
+			<li>
+				<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDay()'>Сегодня</button>
+			</li>
+			<li>
+				<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link" ng-click='setWeek()'>Текущая неделя</button>
+			</li>
+			<li>
+				<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
+			</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="task-page" >
 		<div class="add-task">
-			<form name="myForm" class="form-inline" novalidate ng-submit="addTask()">
-				<div class="input-group input-group-lg" >
-					<input type="text" style="width: 520px" class="form-control input-sm" ng-model="newTask" placeholder="Например: встреча с..." autofocus required />
-					<input type="date" style="width: 200px" ng-model="setDate"  class="form-control input-sm" >
+			<form name="myForm"  novalidate ng-submit="addTask()">				
+				<!-- <div class="input-group input-group-lg" >
+					<input type="text" style="width: 520px" class="form-control " ng-model="newTask" placeholder="Например: встреча с..." autofocus required />
+					<input type="date" style="width: 200px" ng-model="setDate"  class="form-control" >
+				</div> -->
+				<div class="row">
+					<div class="col-md-8">
+				    	<input type="text"  class="form-control " ng-model="newTask" placeholder="Например: встреча с..." autofocus required />
+					</div>
+					<div class="col-md-4">
+						<input type="date" class="form-control input-group-lg" ng-model="setDate"/>
+					</div>
 				</div>
-			</form>
-			<div style="margin-top: 10px;">
+			</form>	
+			<div class="button-add">
 				<button type="submit" class="btn" ng-disabled="myForm.$invalid" ng-click="addTask()">Добавить задачу</button>
 				<button type="btn" class="btn btn-link" ng-click="clearTask()">Отменить</button>
 			</div>
-		</div>	
-		<div id="left-menu" class="left-menu">
-				<ul  class="nav clearfix">
-					<li>
-						<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
-						ng-click="showAll()" >Входящие</button>
-					</li>
-					<li>
-						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDay()'>Сегодня</button>
-					</li>
-					<li>
-						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn"  class="btn-link" ng-click='setWeek()'>Текущая неделя</button>
-					</li>
-					<li>
-						<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
-					</li>
-				</ul>
+					
 		</div>
-		<div class="task-list">
-		<!-- <span class="h4">Осталось {{remain()}}</span> -->
+		<div class="list" >
 			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="!importantlvalue && !dayvalue && !weekvalue" >
-				<tbody ng-repeat="task in taskList track by $index ">				
+				<tbody ng-repeat="task in taskList track by $index ">			
 					<tr ng-if="task != activeTask && !task.done">
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
-						<td><label class="description" ng-class="{strike: task.done}">
+						<td><label class="description" ng-class="{strike: task.done}" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
 						<td><label class="date" >
@@ -93,7 +110,7 @@
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
-						<td><label class="description" ng-class="{strike: task.done}">
+						<td><label class="description"  ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
 						<td><label class="date" >
@@ -120,7 +137,7 @@
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
-						<td><label class="description" ng-class="{strike: task.done}">
+						<td><label class="description" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
 						<td><label class="date" >
@@ -152,7 +169,7 @@
 						<td>
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
-						<td><label class="description" ng-class="{strike: task.done}">
+						<td><label class="description" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
 						<td><label class="date" >
@@ -176,8 +193,10 @@
 						</td>
 					</tr>	
                 </tbody>
-            </table>
+            </table>	
 		</div>
 	</div>
+	</div>
+	
 </body>
 </html>

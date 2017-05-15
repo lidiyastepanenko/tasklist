@@ -68,4 +68,7 @@ angular.module('todoApp', [])
         $scope.dayvalue = false;
         $scope.weekvalue = false;
     }
+    $scope.openMenu = function(){
+        console.log(nav);
+    }
 }]);

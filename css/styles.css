@@ -1,0 +1,341 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 8, ../styles/styles.scss */
+.container {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background-color: #FAF0E6;
+}
+
+/* line 17, ../styles/styles.scss */
+.header {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  padding: 10px;
+  margin: auto;
+  height: 60px;
+  background-color: #FF6633;
+}
+
+/* line 26, ../styles/styles.scss */
+.logo {
+  float: left;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  font-family: cursive;
+  font-size: 26px;
+  font-weight: 500;
+  color: white;
+  border-radius: 5px;
+}
+
+/* line 40, ../styles/styles.scss */
+.content {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  height: 100vh;
+  margin: auto;
+}
+
+/* line 49, ../styles/styles.scss */
+#touch-menu {
+  display: none;
+  padding: 8px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* line 58, ../styles/styles.scss */
+.divide {
+  display: block;
+  height: 3px;
+  margin: 4px 0;
+  background: #FFFFFF;
+}
+
+/* line 65, ../styles/styles.scss */
+.left-menu {
+  position: relative;
+  width: 25%;
+  height: 100vh;
+  top: 60px;
+  display: inline-block;
+}
+
+/* line 72, ../styles/styles.scss */
+.nav li .btn-link {
+  margin-top: 4px;
+  font-size: 16px;
+  color: #000000;
+}
+
+/* line 77, ../styles/styles.scss */
+.nav li .btn-link:hover {
+  margin-top: 4px;
+  font-size: 16px;
+  color: #FF6633;
+  text-decoration: none;
+}
+
+/* line 83, ../styles/styles.scss */
+.glyphicon-list-alt, .glyphicon-calendar,
+.glyphicon-check {
+  font-size: 18px;
+  color: #FF6633;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+  /* line 93, ../styles/styles.scss */
+  .container {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    background-color: #FAF0E6;
+  }
+
+  /* line 100, ../styles/styles.scss */
+  .header {
+    position: fixed;
+    height: 60px;
+    background-color: #FF6633;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* line 108, ../styles/styles.scss */
+  .content {
+    position: static;
+    width: 100%;
+    margin: auto;
+    top: 60px;
+    left: 0px;
+    padding: 0px;
+  }
+
+  /* line 116, ../styles/styles.scss */
+  .left-menu {
+    display: none;
+  }
+
+  /* line 119, ../styles/styles.scss */
+  #touch-menu {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding: 8px 8px;
+    border-radius: 4px;
+  }
+
+  /* line 128, ../styles/styles.scss */
+  #touch-menu:hover {
+    background-color: #D66038;
+  }
+}
+/* line 135, ../styles/styles.scss */
+.task-page {
+  position: absolute;
+  width: 75%;
+  height: 100vh;
+  padding: 10px;
+  display: inline-block;
+  background-color: #FFFFFF;
+}
+
+/* line 145, ../styles/styles.scss */
+.add-task {
+  position: relative;
+  top: 50px;
+}
+
+/* line 149, ../styles/styles.scss */
+.button-add {
+  position: relative;
+}
+
+/* line 153, ../styles/styles.scss */
+.list {
+  position: relative;
+  width: 100%;
+  top: 150px;
+}
+
+@media (max-width: 768px) {
+  /* line 163, ../styles/styles.scss */
+  .task-page {
+    width: 100%;
+    margin: 0px;
+    top: 60px;
+  }
+
+  /* line 170, ../styles/styles.scss */
+  .add-task {
+    position: static;
+    top: 150px;
+  }
+}
+/* line 178, ../styles/styles.scss */
+#taskList .description {
+  font-family: cursive;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+/* line 185, ../styles/styles.scss */
+#taskList :hover .description {
+  font-size: 18px;
+}
+
+/* line 188, ../styles/styles.scss */
+#taskList input {
+  float: left;
+  margin-right: 0px;
+}
+
+/* line 192, ../styles/styles.scss */
+#taskList tr {
+  background-color: #FFFFFF;
+}
+
+/* line 198, ../styles/styles.scss */
+#taskList :hover tr .glyphicon-trash {
+  visibility: visible;
+}
+
+/* line 201, ../styles/styles.scss */
+#taskList :hover tr .glyphicon-pencil {
+  visibility: visible;
+}
+
+/* line 204, ../styles/styles.scss */
+#taskList button {
+  float: right;
+  font-size: 10px;
+  visibility: visible;
+}
+
+/* line 209, ../styles/styles.scss */
+.glyphicon-pencil {
+  font-size: 18px;
+  float: right;
+  color: #0066FF;
+  margin: 5px;
+  visibility: hidden;
+}
+
+/* line 216, ../styles/styles.scss */
+.glyphicon-trash {
+  font-size: 18px;
+  float: right;
+  color: red;
+  margin: 5px;
+  visibility: hidden;
+}
+
+/* line 223, ../styles/styles.scss */
+.glyphicon-ok {
+  font-size: 18px;
+  float: right;
+  color: #009900;
+  margin: 5px;
+}
+
+/* line 229, ../styles/styles.scss */
+.down {
+  font-size: 16px;
+  color: green;
+  font-style: italic;
+}
+
+/* line 234, ../styles/styles.scss */
+.date {
+  font-family: cursive;
+  float: right;
+  font-weight: 300;
+  font-size: 14px;
+  margin-bottom: 0px;
+  cursor: pointer;
+}
+
+/* line 242, ../styles/styles.scss */
+.add {
+  width: 100%;
+  max-width: 960px;
+}
