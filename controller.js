@@ -41,7 +41,7 @@ angular.module('todoApp', [])
     $scope.importantlvalue = false;
 
     $scope.setDone = function(){
-        $scope.importantlvalue = !$scope.importantlvalue;
+        $scope.importantlvalue = true;
     };
     $scope.clearCompleted = function(){
         console.log($scope.taskList);
@@ -53,7 +53,7 @@ angular.module('todoApp', [])
     $scope.setDay = function(){
         $scope.importantlvalue = false;
         $scope.weekvalue = false;
-        $scope.dayvalue = !$scope.dayvalue;
+        $scope.dayvalue = true;
         // console.log(dayvalue);
     };
 
@@ -61,7 +61,7 @@ angular.module('todoApp', [])
     $scope.setWeek = function(){
         $scope.importantlvalue = false;
         $scope.dayvalue = false;
-        $scope.weekvalue = !$scope.weekvalue;
+        $scope.weekvalue = true;
     }
     $scope.showAll = function(){
         $scope.importantlvalue = false;

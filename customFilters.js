@@ -6,14 +6,21 @@ angular.module("todoApp")
         if(boolian == false) return false;
         value.map(function(task) { 
             var now = new Date();
-            console.log(now);
+            console.log('Текущая дата:   ' + now);
             today = now.getDate();
-            console.log(today);
+            console.log('Сегодня день:   ' + today);
+            yesterday = now.setDate(now.getDate() - 1);
+			console.log('Сегодня милисекунды:    ' + yesterday);
             taskDate = new Date(task.date);
-            console.log(taskDate);
+            console.log('Дата таски:   ' + taskDate);
             taskDay = taskDate.getDate();
-            console.log(taskDay);
-            if(taskDay == today) result.push(task);
+            console.log('День таски:    ' + taskDay);
+            taskDayMs = taskDate.setDate(taskDate.getDate() );
+            console.log('День таски в МС:     ' + taskDayMs);
+            tomorrow = now.setDate(now.getDate() + 1);
+            console.log('Завтра:    ' + tomorrow);
+
+            if(taskDayMs <= tomorrow && today == taskDay && yesterday < taskDayMs ) result.push(task);
         })
         console.log(result);
         return result; 
@@ -27,18 +34,21 @@ angular.module("todoApp")
         if(boolian == false) return false;
         value.map(function(task) { 
             var now = new Date();
-            console.log(now);
+            console.log('Текущая дата:   ' + now);
             today = now.getDate();
-            console.log(today);
+            console.log('Сегодня день:   ' + today);
+            yesterday = now.setDate(now.getDate() - 1);
+			console.log('Сегодня милисекунды:    ' + yesterday);
             taskDate = new Date(task.date);
-            console.log(taskDate);
+            console.log('Дата таски:   ' + taskDate);
             taskDay = taskDate.getDate();
-            console.log(taskDay);
-            ddd = taskDate.setDate(taskDate.getDate());
-            console.log(ddd);
-            week = now.setDate(now.getDate() + 7)
-            console.log(week);
-            if(today = taskDay && ddd <= week) result.push(task);
+            console.log('День таски:    ' + taskDay);
+            taskDayMs = taskDate.setDate(taskDate.getDate() );
+            console.log('День таски в МС:     ' + taskDayMs);
+            week = now.setDate(now.getDate() + 7);
+            console.log('Неделя:    ' + week);
+
+            if(taskDayMs <= week && yesterday < taskDayMs ) result.push(task);
         })
         console.log(result);
         return result; 
