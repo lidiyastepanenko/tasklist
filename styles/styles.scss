@@ -81,7 +81,7 @@
 		padding-left: 10px;
 	}
 .nav li{
-	padding-left: 20px;
+	padding-left: 5px;
 }
 
 .nav li .btn-link{
@@ -224,8 +224,11 @@
 }
 
 
-
+#td-checkbox{
+	width: 30px;
+}
 #taskList .description {
+	max-width: 450px;
 	// font-family: cursive;
 	font-weight: 400;
 	font-size: 16px;
@@ -237,14 +240,12 @@
 }
 #taskList input {
 	float: left;
-	margin-right: 0px;
+	margin-right: 5px;
+	margin-top: 6px;
 }
 #taskList tr {
 	background-color: #FFFFFF;
 }
-// #taskList :hover tr {
-// 	background-color: #DCDCDC;
-// }
 #taskList :hover tr .glyphicon-trash{
 	visibility: visible;
 }
@@ -283,6 +284,7 @@
 	color: #0409b3;
 	margin:5px;
 }
+
 .date{
 	// font-family:  cursive;
 	float: right;
@@ -296,8 +298,12 @@
 		#taskList{
 			width: 100%;
 		}
+		#td-checkbox{
+			width: 20px;
+		}
 		#taskList .description {
 			// font-family: cursive;
+			max-width: 300px;
 			font-weight: 300;
 			font-size: 12px;
 			margin-bottom: 0px;
@@ -305,13 +311,6 @@
 		}
 		#taskList :hover .description{
 			font-size: 16px;
-		}
-		.date{
-			float: right;
-			font-weight: 200;
-			font-size: 12px;
-			margin-bottom: -10px;
-			cursor: pointer;
 		}
 		#taskList .btn-link {
 			float: left;
@@ -325,12 +324,37 @@
 		}
 		#taskList input{
 			padding-bottom: 5px;
+			margin-top: 8px;
+		}
+		#taskList :hover input{
+			margin-top: 10px;
 		}
 		#taskList td{
+			height: auto;
 			padding: 5px;
 		}
 		#taskList label{
 			padding: 6px 0px;
+		}
+		#taskList .btn-link {
+			float: left;
+			font-size: 12px;
+			color: #FF6633;
+			text-decoration: none;
+			visibility:visible;
+		}
+		#td-date{
+			width: 80px;
+		}
+		.date{
+			float: right;
+			font-weight: 200;
+			font-size: 12px;
+			// margin-bottom: -10px;
+			cursor: pointer;
+		}
+		#td-glyphicon{
+			width: 65px;
 		}
 		.glyphicon-pencil{
 			font-size: 16px;
@@ -346,28 +370,14 @@
 			margin:5px;
 			visibility: visible;
 		}
-		#taskList .description {
-			// font-family: cursive;
-			font-weight: 300;
-			font-size: 12px;
-			margin-bottom: 0px;
-			cursor: pointer;
-		}
-		#taskList :hover .description{
-			font-size: 16px;
-		}
-		.date{
-			float: right;
-			font-weight: 200;
-			font-size: 12px;
-			margin-bottom: -10px;
-			cursor: pointer;
-		}
-		#taskList .btn-link {
-			float: left;
-			font-size: 12px;
-			color: #FF6633;
-			text-decoration: none;
-			visibility:visible;
-		}
+		// #taskList .description {
+		// 	// font-family: cursive;
+		// 	font-weight: 300;
+		// 	font-size: 12px;
+		// 	margin-bottom: 0px;
+		// 	cursor: pointer;
+		// }
+		// #taskList :hover .description{
+		// 	font-size: 16px;
+		// }
 	}

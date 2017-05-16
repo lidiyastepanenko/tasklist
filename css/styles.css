@@ -148,7 +148,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 83, ../styles/styles.scss */
 .nav li {
-  padding-left: 20px;
+  padding-left: 5px;
 }
 
 /* line 87, ../styles/styles.scss */
@@ -308,48 +308,55 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     padding: 15px 0px 15px 5px;
   }
 }
-/* line 228, ../styles/styles.scss */
+/* line 227, ../styles/styles.scss */
+#td-checkbox {
+  width: 30px;
+}
+
+/* line 230, ../styles/styles.scss */
 #taskList .description {
+  max-width: 450px;
   font-weight: 400;
   font-size: 16px;
   margin-bottom: 0px;
   cursor: pointer;
 }
 
-/* line 235, ../styles/styles.scss */
+/* line 238, ../styles/styles.scss */
 #taskList :hover .description {
   font-size: 18px;
 }
 
-/* line 238, ../styles/styles.scss */
+/* line 241, ../styles/styles.scss */
 #taskList input {
   float: left;
-  margin-right: 0px;
+  margin-right: 5px;
+  margin-top: 6px;
 }
 
-/* line 242, ../styles/styles.scss */
+/* line 246, ../styles/styles.scss */
 #taskList tr {
   background-color: #FFFFFF;
 }
 
-/* line 248, ../styles/styles.scss */
+/* line 249, ../styles/styles.scss */
 #taskList :hover tr .glyphicon-trash {
   visibility: visible;
 }
 
-/* line 251, ../styles/styles.scss */
+/* line 252, ../styles/styles.scss */
 #taskList :hover tr .glyphicon-pencil {
   visibility: visible;
 }
 
-/* line 254, ../styles/styles.scss */
+/* line 255, ../styles/styles.scss */
 #taskList button {
   float: right;
   font-size: 10px;
   visibility: visible;
 }
 
-/* line 259, ../styles/styles.scss */
+/* line 260, ../styles/styles.scss */
 #taskList .btn-link {
   float: left;
   font-size: 16px;
@@ -358,7 +365,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   visibility: visible;
 }
 
-/* line 266, ../styles/styles.scss */
+/* line 267, ../styles/styles.scss */
 .glyphicon-pencil {
   font-size: 18px;
   float: right;
@@ -367,7 +374,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   visibility: hidden;
 }
 
-/* line 273, ../styles/styles.scss */
+/* line 274, ../styles/styles.scss */
 .glyphicon-trash {
   font-size: 18px;
   float: right;
@@ -376,7 +383,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   visibility: hidden;
 }
 
-/* line 280, ../styles/styles.scss */
+/* line 281, ../styles/styles.scss */
 .btn-info {
   font-size: 18px;
   float: left;
@@ -384,7 +391,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   margin: 5px;
 }
 
-/* line 286, ../styles/styles.scss */
+/* line 288, ../styles/styles.scss */
 .date {
   float: right;
   font-weight: 300;
@@ -394,34 +401,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media (max-width: 768px) {
-  /* line 296, ../styles/styles.scss */
+  /* line 298, ../styles/styles.scss */
   #taskList {
     width: 100%;
   }
 
-  /* line 299, ../styles/styles.scss */
+  /* line 301, ../styles/styles.scss */
+  #td-checkbox {
+    width: 20px;
+  }
+
+  /* line 304, ../styles/styles.scss */
   #taskList .description {
+    max-width: 300px;
     font-weight: 300;
     font-size: 12px;
     margin-bottom: 0px;
     cursor: pointer;
   }
 
-  /* line 306, ../styles/styles.scss */
+  /* line 312, ../styles/styles.scss */
   #taskList :hover .description {
     font-size: 16px;
   }
 
-  /* line 309, ../styles/styles.scss */
-  .date {
-    float: right;
-    font-weight: 200;
-    font-size: 12px;
-    margin-bottom: -10px;
-    cursor: pointer;
-  }
-
-  /* line 316, ../styles/styles.scss */
+  /* line 315, ../styles/styles.scss */
   #taskList .btn-link {
     float: left;
     font-size: 12px;
@@ -430,27 +434,61 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     visibility: visible;
   }
 
-  /* line 323, ../styles/styles.scss */
+  /* line 322, ../styles/styles.scss */
   #taskList table {
     width: 100%;
   }
 
-  /* line 326, ../styles/styles.scss */
+  /* line 325, ../styles/styles.scss */
   #taskList input {
     padding-bottom: 5px;
+    margin-top: 8px;
   }
 
   /* line 329, ../styles/styles.scss */
-  #taskList td {
-    padding: 5px;
+  #taskList :hover input {
+    margin-top: 10px;
   }
 
   /* line 332, ../styles/styles.scss */
+  #taskList td {
+    height: auto;
+    padding: 5px;
+  }
+
+  /* line 336, ../styles/styles.scss */
   #taskList label {
     padding: 6px 0px;
   }
 
-  /* line 335, ../styles/styles.scss */
+  /* line 339, ../styles/styles.scss */
+  #taskList .btn-link {
+    float: left;
+    font-size: 12px;
+    color: #FF6633;
+    text-decoration: none;
+    visibility: visible;
+  }
+
+  /* line 346, ../styles/styles.scss */
+  #td-date {
+    width: 80px;
+  }
+
+  /* line 349, ../styles/styles.scss */
+  .date {
+    float: right;
+    font-weight: 200;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  /* line 356, ../styles/styles.scss */
+  #td-glyphicon {
+    width: 65px;
+  }
+
+  /* line 359, ../styles/styles.scss */
   .glyphicon-pencil {
     font-size: 16px;
     float: right;
@@ -459,43 +497,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     visibility: visible;
   }
 
-  /* line 342, ../styles/styles.scss */
+  /* line 366, ../styles/styles.scss */
   .glyphicon-trash {
     font-size: 18px;
     float: right;
     color: red;
     margin: 5px;
-    visibility: visible;
-  }
-
-  /* line 349, ../styles/styles.scss */
-  #taskList .description {
-    font-weight: 300;
-    font-size: 12px;
-    margin-bottom: 0px;
-    cursor: pointer;
-  }
-
-  /* line 356, ../styles/styles.scss */
-  #taskList :hover .description {
-    font-size: 16px;
-  }
-
-  /* line 359, ../styles/styles.scss */
-  .date {
-    float: right;
-    font-weight: 200;
-    font-size: 12px;
-    margin-bottom: -10px;
-    cursor: pointer;
-  }
-
-  /* line 366, ../styles/styles.scss */
-  #taskList .btn-link {
-    float: left;
-    font-size: 12px;
-    color: #FF6633;
-    text-decoration: none;
     visibility: visible;
   }
 }

@@ -74,23 +74,22 @@
 			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="!importantlvalue && !dayvalue && !weekvalue" >
 				<tbody ng-repeat="task in taskList track by $index ">			
 					<tr ng-if="task != activeTask && !task.done">
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
 						<td><label class="description" ng-class="{strike: task.done}" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
-						<td><label class="date" >
+						<td id="td-date"><label class="date" >
 							{{task.date | date: "dd-MM-yyyy"}}</label>
 						</td>
-						<td>
+						<td id="td-glyphicon">
 							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
 							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
-							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
 						</td>
 					</tr>
 					<tr ng-if="task == activeTask" >
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" disabled>	
 						</td>
 						<td>
@@ -107,13 +106,13 @@
 			<table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="importantlvalue">
                 <tbody  ng-repeat="task in taskList | showDone: importantlvalue">
                     <tr>
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
 						<td><label class="description"  ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
-						<td><label class="date" >
+						<td id="td-date"><label class="date" >
 							{{task.date | date: "dd-MM-yyyy"}}</label>
 						</td>
 						<!-- <td>
@@ -134,23 +133,23 @@
             <table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="dayvalue && !importantlvalue">
                 <tbody  ng-repeat="task in taskList | showToday: dayvalue">
                     <tr ng-if="task != activeTask && !task.done">
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
 						<td><label class="description" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
-						<td><label class="date" >
+						<td id="td-date"><label class="date" >
 							{{task.date | date: "dd-MM-yyyy"}}</label>
 						</td>
-						<td>
+						<td id="td-glyphicon">
 							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
 							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
 							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
 						</td>
 					</tr>
 					<tr ng-if="task == activeTask" >
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" disabled>	
 						</td>
 						<td>
@@ -166,23 +165,23 @@
             <table id="taskList" class="table table-striped" cellpadding="0" cellpadding="0" ng-if="weekvalue && !importantlvalue">
                 <tbody  ng-repeat="task in taskList | showWeek: weekvalue">
                     <tr ng-if="task != activeTask && !task.done">
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" title="Выполнено">
 						</td>
 						<td><label class="description" ng-click="editTask(task)">
 							{{task.description}}</label>
 						</td>
-						<td><label class="date" >
+						<td id="td-date"><label class="date" >
 							{{task.date | date: "dd-MM-yyyy"}}</label>
 						</td>
-						<td>
+						<td id="td-glyphicon">
 							<a class="glyphicon glyphicon-trash" href="" ng-hide="task.done" ng-click="deleteTask()" title="Удалить"></a>
 							<a class="glyphicon glyphicon-pencil" href="" ng-hide="task.done" ng-click="editTask(task)" title="Редактировать"></a>
 							<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
 						</td>
 					</tr>
 					<tr ng-if="task == activeTask" >
-						<td>
+						<td id="td-checkbox">
 							<input type="checkbox" ng-model="task.done" disabled>	
 						</td>
 						<td>
