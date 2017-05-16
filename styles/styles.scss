@@ -4,6 +4,14 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+.clear:after {
+        content: "&nbsp;";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+        line-height: 0;
+}
 
 .container{
 	width: 100%;
@@ -27,7 +35,7 @@
 	float: left;
 	height: 40px;
 	padding: 0 10px 0 10px;
-	font-family: cursive;
+	// font-family: cursive;
 	font-size: 26px;
 	font-weight:500;
 	color: white;
@@ -42,11 +50,12 @@
 	width: 100%;
 	max-width: 960px;
 	height: 100vh;
+	left: 0px;
 	// top: 35px;
 	margin: auto;
 	
 }
-#touch-menu {
+#touchMenu {
 	display: none;
 	padding: 8px 0px;
 	// text-decoration:none;
@@ -62,13 +71,12 @@
 	background: #FFFFFF;
 }
 	// ------left-menu-------
-.left-menu{
-	position: relative;
+.nav{
+	margin-top: 70px;
+	float: left;
 	width: 25%;
-	height: 100vh;
-	top: 60px;
-	display: inline-block;
 }
+
 .nav li .btn-link{
 	margin-top: 4px;
 	font-size: 16px;
@@ -99,24 +107,52 @@
 	}
 	.header{
 		position: fixed;
+		width: 100%;
+		max-width: 768px;
 		height: 60px;
 		background-color: #FF6633;
 		top: 0;
 		left: 0;
 		right: 0;
+		z-index: 999999;
 	}
 	.content{
-		position: static;
+		position: absolute;
 		width:100%;
+		height: auto;
 		margin: auto;
-		top: 60px;
-		left: 0px;
-		padding:0px;
+		// top: 100%;
+		// left: 0px;
+		padding:10px;
 	}
-	.left-menu{
+	.nav { 
+		// position: absolute;
+		margin-top: -10px;
+		top: 100%;
+		left: 0;
+		right: 0;
 		display: none;
 	}
-	#touch-menu{
+	.nav li {
+		float: none;
+		// position: relative;
+	}
+	.nav li a {
+		margin-top: 0px;
+		padding: 5px;
+		color: #333;
+		border-top: 1px solid #eee;
+		background-color:#F5F6F4;
+	}
+	.nav li:first-child a {
+		border-top: none;
+		margin-top: 10px;
+	}
+	.nav li a:hover {
+		background-color: #F0F0EF;
+		border-left: 3px solid #D0CDCD;
+	}
+	#touchMenu{
 		display: block;
 		float: left;
 		width: 40px;
@@ -125,7 +161,7 @@
 		padding: 8px 8px;
 		border-radius: 4px;
 	}
-	#touch-menu:hover {
+	#touchMenu:hover {
 		background-color: #D66038;
 	}
 }
@@ -133,11 +169,11 @@
 
 	// ------task-page-------
 .task-page{
-	position: absolute;
+	position: relative;
 	// top: 30px;
 	width: 75%;
-	height: 100vh;
-	padding: 10px;
+	height: auto;
+	padding: 0px;
 	display: inline-block;
 	
 	background-color: #FFFFFF;
@@ -146,10 +182,10 @@
 	position: relative;
 	top: 50px;
 }
-.button-add{
-	position: relative;
-	// left: 15px;
-}
+// .button-add{
+// 	position: relative;
+// 	// left: 15px;
+// }
 .list{
 	position: relative;
 	width: 100%;
@@ -161,22 +197,32 @@
 @media (max-width: 768px){
 
 	.task-page{
-		// position: static;
-		// display: block;
+		position: absolute;
+		top: 60px;
 		width: 100%;
+		height: auto;
 		margin: 0px;
-		top:60px;
 	}
 	.add-task{
-		position: static;
-		top: 150px;
+		// position: static;
+		top: 40px;
 	}
+
+	// .button-add{
+	// position: static;
+	// // left: 15px;
+	// }
+	// .list{
+		
+	// 	top: 100%;
+	// }
+
 }
 
 
 
 #taskList .description {
-	font-family: cursive;
+	// font-family: cursive;
 	font-weight: 400;
 	font-size: 16px;
 	margin-bottom: 0px;
@@ -232,14 +278,14 @@
 	font-style: italic;
 }
 .date{
-	font-family:  cursive;
+	// font-family:  cursive;
 	float: right;
 	font-weight: 300;
 	font-size: 14px;
 	margin-bottom: 0px;
 	cursor: pointer;
 }
-.add{
-	width: 100%;
-	max-width: 960px;
-}
+// .add{
+// 	width: 100%;
+// 	max-width: 960px;
+// }

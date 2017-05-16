@@ -54,7 +54,6 @@ angular.module('todoApp', [])
         $scope.importantlvalue = false;
         $scope.weekvalue = false;
         $scope.dayvalue = true;
-        // console.log(dayvalue);
     };
 
     $scope.weekvalue = false;
@@ -68,7 +67,13 @@ angular.module('todoApp', [])
         $scope.dayvalue = false;
         $scope.weekvalue = false;
     }
-    $scope.openMenu = function(){
-        console.log(nav);
-    }
+    // $scope.openMenu = function(e){
+    //     var touch = touchMenu;
+    //     console.log(touch);
+    //     touch.click(function() {
+    //         nav.addClass("show")
+    //        console.log(nav);
+    //     });
+       
+    // }
 }]);

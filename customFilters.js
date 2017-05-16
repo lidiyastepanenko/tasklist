@@ -19,7 +19,6 @@ angular.module("todoApp")
             console.log('День таски в МС:     ' + taskDayMs);
             tomorrow = now.setDate(now.getDate() + 1);
             console.log('Завтра:    ' + tomorrow);
-
             if(taskDayMs <= tomorrow && today == taskDay && yesterday < taskDayMs ) result.push(task);
         })
         console.log(result);

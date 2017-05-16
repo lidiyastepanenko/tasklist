@@ -67,7 +67,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../styles/styles.scss */
+/* line 7, ../styles/styles.scss */
+.clear:after {
+  content: "&nbsp;";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  line-height: 0;
+}
+
+/* line 16, ../styles/styles.scss */
 .container {
   width: 100%;
   padding: 0px;
@@ -76,7 +86,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-color: #FAF0E6;
 }
 
-/* line 17, ../styles/styles.scss */
+/* line 25, ../styles/styles.scss */
 .header {
   position: relative;
   width: 100%;
@@ -87,29 +97,29 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-color: #FF6633;
 }
 
-/* line 26, ../styles/styles.scss */
+/* line 34, ../styles/styles.scss */
 .logo {
   float: left;
   height: 40px;
   padding: 0 10px 0 10px;
-  font-family: cursive;
   font-size: 26px;
   font-weight: 500;
   color: white;
   border-radius: 5px;
 }
 
-/* line 40, ../styles/styles.scss */
+/* line 48, ../styles/styles.scss */
 .content {
   position: relative;
   width: 100%;
   max-width: 960px;
   height: 100vh;
+  left: 0px;
   margin: auto;
 }
 
-/* line 49, ../styles/styles.scss */
-#touch-menu {
+/* line 58, ../styles/styles.scss */
+#touchMenu {
   display: none;
   padding: 8px 0px;
   font-size: 16px;
@@ -117,7 +127,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #333;
 }
 
-/* line 58, ../styles/styles.scss */
+/* line 67, ../styles/styles.scss */
 .divide {
   display: block;
   height: 3px;
@@ -125,23 +135,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background: #FFFFFF;
 }
 
-/* line 65, ../styles/styles.scss */
-.left-menu {
-  position: relative;
+/* line 74, ../styles/styles.scss */
+.nav {
+  margin-top: 70px;
+  float: left;
   width: 25%;
-  height: 100vh;
-  top: 60px;
-  display: inline-block;
 }
 
-/* line 72, ../styles/styles.scss */
+/* line 80, ../styles/styles.scss */
 .nav li .btn-link {
   margin-top: 4px;
   font-size: 16px;
   color: #000000;
 }
 
-/* line 77, ../styles/styles.scss */
+/* line 85, ../styles/styles.scss */
 .nav li .btn-link:hover {
   margin-top: 4px;
   font-size: 16px;
@@ -149,7 +157,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-decoration: none;
 }
 
-/* line 83, ../styles/styles.scss */
+/* line 91, ../styles/styles.scss */
 .glyphicon-list-alt, .glyphicon-calendar,
 .glyphicon-check {
   font-size: 18px;
@@ -158,7 +166,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media (max-width: 768px) {
-  /* line 93, ../styles/styles.scss */
+  /* line 101, ../styles/styles.scss */
   .container {
     width: 100%;
     padding: 0px;
@@ -167,33 +175,65 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-color: #FAF0E6;
   }
 
-  /* line 100, ../styles/styles.scss */
+  /* line 108, ../styles/styles.scss */
   .header {
     position: fixed;
+    width: 100%;
+    max-width: 768px;
     height: 60px;
     background-color: #FF6633;
     top: 0;
     left: 0;
     right: 0;
-  }
-
-  /* line 108, ../styles/styles.scss */
-  .content {
-    position: static;
-    width: 100%;
-    margin: auto;
-    top: 60px;
-    left: 0px;
-    padding: 0px;
-  }
-
-  /* line 116, ../styles/styles.scss */
-  .left-menu {
-    display: none;
+    z-index: 999999;
   }
 
   /* line 119, ../styles/styles.scss */
-  #touch-menu {
+  .content {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 10px;
+  }
+
+  /* line 128, ../styles/styles.scss */
+  .nav {
+    margin-top: -10px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  /* line 136, ../styles/styles.scss */
+  .nav li {
+    float: none;
+  }
+
+  /* line 140, ../styles/styles.scss */
+  .nav li a {
+    margin-top: 0px;
+    padding: 5px;
+    color: #333;
+    border-top: 1px solid #eee;
+    background-color: #F5F6F4;
+  }
+
+  /* line 147, ../styles/styles.scss */
+  .nav li:first-child a {
+    border-top: none;
+    margin-top: 10px;
+  }
+
+  /* line 151, ../styles/styles.scss */
+  .nav li a:hover {
+    background-color: #F0F0EF;
+    border-left: 3px solid #D0CDCD;
+  }
+
+  /* line 155, ../styles/styles.scss */
+  #touchMenu {
     display: block;
     float: left;
     width: 40px;
@@ -202,33 +242,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     border-radius: 4px;
   }
 
-  /* line 128, ../styles/styles.scss */
-  #touch-menu:hover {
+  /* line 164, ../styles/styles.scss */
+  #touchMenu:hover {
     background-color: #D66038;
   }
 }
-/* line 135, ../styles/styles.scss */
+/* line 171, ../styles/styles.scss */
 .task-page {
-  position: absolute;
+  position: relative;
   width: 75%;
-  height: 100vh;
-  padding: 10px;
+  height: auto;
+  padding: 0px;
   display: inline-block;
   background-color: #FFFFFF;
 }
 
-/* line 145, ../styles/styles.scss */
+/* line 181, ../styles/styles.scss */
 .add-task {
   position: relative;
   top: 50px;
 }
 
-/* line 149, ../styles/styles.scss */
-.button-add {
-  position: relative;
-}
-
-/* line 153, ../styles/styles.scss */
+/* line 189, ../styles/styles.scss */
 .list {
   position: relative;
   width: 100%;
@@ -236,62 +271,62 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 @media (max-width: 768px) {
-  /* line 163, ../styles/styles.scss */
+  /* line 199, ../styles/styles.scss */
   .task-page {
-    width: 100%;
-    margin: 0px;
+    position: absolute;
     top: 60px;
+    width: 100%;
+    height: auto;
+    margin: 0px;
   }
 
-  /* line 170, ../styles/styles.scss */
+  /* line 206, ../styles/styles.scss */
   .add-task {
-    position: static;
-    top: 150px;
+    top: 40px;
   }
 }
-/* line 178, ../styles/styles.scss */
+/* line 224, ../styles/styles.scss */
 #taskList .description {
-  font-family: cursive;
   font-weight: 400;
   font-size: 16px;
   margin-bottom: 0px;
   cursor: pointer;
 }
 
-/* line 185, ../styles/styles.scss */
+/* line 231, ../styles/styles.scss */
 #taskList :hover .description {
   font-size: 18px;
 }
 
-/* line 188, ../styles/styles.scss */
+/* line 234, ../styles/styles.scss */
 #taskList input {
   float: left;
   margin-right: 0px;
 }
 
-/* line 192, ../styles/styles.scss */
+/* line 238, ../styles/styles.scss */
 #taskList tr {
   background-color: #FFFFFF;
 }
 
-/* line 198, ../styles/styles.scss */
+/* line 244, ../styles/styles.scss */
 #taskList :hover tr .glyphicon-trash {
   visibility: visible;
 }
 
-/* line 201, ../styles/styles.scss */
+/* line 247, ../styles/styles.scss */
 #taskList :hover tr .glyphicon-pencil {
   visibility: visible;
 }
 
-/* line 204, ../styles/styles.scss */
+/* line 250, ../styles/styles.scss */
 #taskList button {
   float: right;
   font-size: 10px;
   visibility: visible;
 }
 
-/* line 209, ../styles/styles.scss */
+/* line 255, ../styles/styles.scss */
 .glyphicon-pencil {
   font-size: 18px;
   float: right;
@@ -300,7 +335,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   visibility: hidden;
 }
 
-/* line 216, ../styles/styles.scss */
+/* line 262, ../styles/styles.scss */
 .glyphicon-trash {
   font-size: 18px;
   float: right;
@@ -309,7 +344,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   visibility: hidden;
 }
 
-/* line 223, ../styles/styles.scss */
+/* line 269, ../styles/styles.scss */
 .glyphicon-ok {
   font-size: 18px;
   float: right;
@@ -317,25 +352,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   margin: 5px;
 }
 
-/* line 229, ../styles/styles.scss */
+/* line 275, ../styles/styles.scss */
 .down {
   font-size: 16px;
   color: green;
   font-style: italic;
 }
 
-/* line 234, ../styles/styles.scss */
+/* line 280, ../styles/styles.scss */
 .date {
-  font-family: cursive;
   float: right;
   font-weight: 300;
   font-size: 14px;
   margin-bottom: 0px;
   cursor: pointer;
-}
-
-/* line 242, ../styles/styles.scss */
-.add {
-  width: 100%;
-  max-width: 960px;
 }

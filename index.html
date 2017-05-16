@@ -17,22 +17,21 @@
 	<link rel="stylesheet" type="text/css" href="./lib/bootstrap.css">
 	<script src="customFilters.js"></script>
 </head>
-<body ng-app="todoApp" class="container">
+<body ng-app="todoApp" class="container" ng-controller="todoController">
 
 <header class="header">
 	<div class="logo">
 		<span class="todo" ng-click="showAll()">todo</span>
 	</div>
-	<a href="#" id="touch-menu" ng-click="openMenu()">
+	<a href="#" id="touchMenu" ng-click="openMenu()">
 		<span class="divide"></span>
 		<span class="divide"></span>
 		<span class="divide"></span>
 	</a>
 </header>
-<div class="content" ng-controller="todoController">
-	<div class="left-menu">
-		<nav  class="nav clearfix" tabindex='1'>
-			<ul>
+<div class="content">
+	<nav>
+		<ul class="nav clearfix" tabindex='1'>
 			<li>
 				<span class="glyphicon glyphicon-list-alt"></span>  <button type="btn" class="btn-link" 
 				ng-click="showAll()" >Входящие</button>
@@ -47,8 +46,8 @@
 				<span class="glyphicon glyphicon-calendar"></span>  <button type="btn" class="btn-link" ng-click='setDone()'>Выполненные </button><span class="over">{{taskList.length - remain()}}</span>
 			</li>
 			</ul>
-		</nav>
-	</div>
+		
+	</nav>
 	<div class="task-page" >
 		<div class="add-task">
 			<form name="myForm"  novalidate ng-submit="addTask()">				
