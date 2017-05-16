@@ -3,7 +3,7 @@
 <head>
 	<title>Список задач</title>	
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="./lib/angular.js"></script>
@@ -13,11 +13,11 @@
 <!-- 	<script type="text/javascript" src="js/moment-with-locales.min.js"></script> -->
 <!-- 	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script> -->
 	<link rel="stylesheet" href="./lib/bootstrap-datetimepicker.min.css" />
-	<link rel="stylesheet" type="text/css" href="./css/styles.css">
-	<link rel="stylesheet" type="text/css" href="./lib/bootstrap.css">
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="./lib/bootstrap.css">
 	<script src="customFilters.js"></script>
 </head>
-<body ng-app="todoApp" class="container" ng-controller="todoController">
+<body class="container" ng-app="todoApp" ng-controller="todoController">
 
 <header class="header">
 	<div class="logo">
@@ -97,7 +97,8 @@
 							<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
 						</td>
 						<td colspan="2">
-							<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
+							<button class="btn btn-link" ng-click="updateTask(task)">Сохранить</button>
+							<!-- <a class="glyphicon glyphicon-floppy-saved" href="" ng-click="updateTask(task)"></a> -->
 						</td>
 					</tr>	
 				</tbody>
