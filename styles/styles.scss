@@ -157,22 +157,32 @@
 	}
 	#mobileMenu li{
 		float: none;
-		padding:5px 0px;
+		padding:0px 0px;
 		text-transform:uppercase;
 		border-top: 1px solid #F6E6D5;
 	}
-	#mobileMenu li:hover {
+	#mobileMenu li:hover{
 		background-color: #F6E6D5;
 		border-left: 3px solid #FF6633;
-	}
-	#mobileMenu li:hover button{
 		color: #FF6633;
 	}
-	#mobileMenu button{
+	#mobileMenu li:hover a{
+		background-color: #F6E6D5;
+		color: #FF6633;
+	}
+	#mobileMenu a{
 		font-size: 12px;
+		color: #000000;
+		margin: 0px;
 		text-transform:uppercase;
 		text-decoration: none;
 	}
+	#mobileMenu li a.active{
+		background-color: #F6E6D5;
+		border-left: 3px solid #FF6633;
+		color: #FF6633;
+	}
+
 }
 
 	// ------task-page-------
