@@ -3,6 +3,7 @@ angular.module('todoApp', [])
 .controller('todoController', ["$scope", "$filter", function($scope, $filter){
     $scope.pendingCount = 3;   
 	$scope.setDate= new Date ();
+    $scope.openMenu = false;
 	$scope.taskList = [];
         if (localStorage.object){
             $scope.taskList = JSON.parse(localStorage.getItem("object"));
@@ -45,6 +46,7 @@ angular.module('todoApp', [])
 
     $scope.setDone = function(){
         $scope.importantlvalue = true;
+        $scope.openMenu = false;
     };
     $scope.clearCompleted = function(){
         console.log($scope.taskList);
@@ -57,6 +59,7 @@ angular.module('todoApp', [])
         $scope.importantlvalue = false;
         $scope.weekvalue = false;
         $scope.dayvalue = true;
+        $scope.openMenu = false;
     };
 
     $scope.weekvalue = false;
@@ -64,20 +67,12 @@ angular.module('todoApp', [])
         $scope.importantlvalue = false;
         $scope.dayvalue = false;
         $scope.weekvalue = true;
+        $scope.openMenu = false;
     }
     $scope.showAll = function(){
         $scope.importantlvalue = false;
         $scope.dayvalue = false;
         $scope.weekvalue = false;
+        $scope.openMenu = false;
     }
-    $scope.openMenu = false;
-    // $scope.openMenu = function(e){
-    //     var touch = touchMenu;
-    //     console.log(touch);
-    //     touch.click(function() {
-    //         nav.addClass("show")
-    //        console.log(nav);
-    //     });
-       
-    // }
 }]);
