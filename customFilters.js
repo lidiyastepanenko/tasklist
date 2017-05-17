@@ -1,14 +1,10 @@
 angular.module("todoApp")
 .filter("showDone", function () {
     return function (value, boolian) {
-        // console.log(value);
         var result = [];
         if(boolian == false) return false;
         value.map(function(task) {            
             if(task.done === true) result.push(task);
-            console.log(task);
-            // console.log(task.date);
-            // console.log(task.description);
         })
         console.log(result);
         return result; 
