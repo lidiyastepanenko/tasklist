@@ -8,7 +8,10 @@ angular.module('todoApp', [])
             $scope.taskList = JSON.parse(localStorage.getItem("object"));
             }
 	$scope.addTask = function(){
-		$scope.taskList.push({description: $scope.newTask, date: $scope.setDate, done : false})
+        if ($scope.newTask !== "") {
+            $scope.taskList.push({description: $scope.newTask, date: $scope.setDate, done : false})
+        }
+		
 		return $scope.newTask ="", $scope.setDate = new Date ();
 	};	
 	$scope.remain = function () {
@@ -67,6 +70,7 @@ angular.module('todoApp', [])
         $scope.dayvalue = false;
         $scope.weekvalue = false;
     }
+    $scope.openMenu = false;
     // $scope.openMenu = function(e){
     //     var touch = touchMenu;
     //     console.log(touch);
