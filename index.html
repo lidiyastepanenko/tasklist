@@ -26,7 +26,7 @@
 			<span class="divide"></span>
 		</a>
 	</header>
-	<div class="content" ng-click="openMenu = false">
+	<div class="content">
 		<nav id="desktop">
 			<ul class="nav clearfix" tabindex='1'>
 				<li>
@@ -61,7 +61,7 @@
 				</ul>
 			
 		</nav>
-		<div class="task-page" >
+		<div class="task-page" ng-click="openMenu = false">
 			<div class="add-task">
 				<form name="myForm"  novalidate ng-submit="addTask()">				
 					<!-- <div class="input-group input-group-lg" >
@@ -110,7 +110,6 @@
 							</td>
 							<td colspan="2">
 								<button class="btn btn-link" ng-click="updateTask(task)">Сохранить</button>
-								<!-- <a class="glyphicon glyphicon-floppy-saved" href="" ng-click="updateTask(task)"></a> -->
 							</td>
 						</tr>	
 					</tbody>
@@ -128,9 +127,6 @@
 							<td id="td-date"><label class="date" >
 								{{task.date | date: "dd-MM-yyyy"}}</label>
 							</td>
-							<!-- <td>
-								<a class="glyphicon glyphicon-thumbs-up" ng-show="task.done"></a>
-							</td> -->
 						</tr>
 						<tbody>
 							<tr>
@@ -168,7 +164,7 @@
 								<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
 							</td>
 							<td colspan="2">
-								<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
+								<button class="btn btn-link" ng-click="updateTask(task)">Сохранить</button>
 							</td>
 						</tr>	
 	                </tbody>
@@ -199,7 +195,7 @@
 								<input id="taskList" class="description" ng-model="task.description" type="text" autofocus>
 							</td>
 							<td colspan="2">
-								<a class="glyphicon glyphicon-ok" href="" ng-click="updateTask(task)"></a>
+								<button class="btn btn-link" ng-click="updateTask(task)">Сохранить</button>
 							</td>
 						</tr>	
 					</tbody>
