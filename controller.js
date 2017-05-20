@@ -19,7 +19,7 @@ angular.module('todoApp', [])
         angular.forEach($scope.taskList, function(task) {
             var sObj = JSON.stringify($scope.taskList);
             localStorage.setItem("object", sObj);
-            count = task.done;
+            count -= task.done;
         });
         return count;
     };
